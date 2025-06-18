@@ -1,0 +1,22 @@
+Available Tools: [{"name": "create_certificate", "description": "\n        使用者若提到「初次發證」「發證 首次」等相關語句，\n        依照 csv / xlsx 建立 PDF 證書（若已產生過則直接回覆已存在）。\n        ", "parameters": {"properties": {}, "type": "object"}}, {"name": "reissue_certificate", "description": "\n        偵測使用者想「補發證書」的需求。觸發同義詞：補發、重寄、重新寄送、補寄、再發、再寄、再給、沒收到、遺失。\n        ", "parameters": {"properties": {"id_nubmer_or_certificate_number": {"description": "身份證字號 或 ID。", "type": "string"}}, "required": ["id_nubmer_or_certificate_number"], "type": "object"}}]
+
+Your task is to choose and return the correct tool(s) from the list of available tools based on the query. Follow these guidelines:
+
+- Return only the JSON object, without any additional text or explanation.
+
+- If no tools match the query, return an empty array: 
+    {
+    "tool_calls": []
+    }
+
+- If one or more tools match the query, construct a JSON response containing a "tool_calls" array with objects that include:
+    - "name": The tool's name.
+    - "parameters": A dictionary of required parameters and their corresponding values.
+
+The format for the JSON response is strictly:
+{
+    "tool_calls": [
+    {"name": "toolName1", "parameters": {"key1": "value1"}},
+    {"name": "toolName2", "parameters": {"key2": "value2"}}
+    ]
+}

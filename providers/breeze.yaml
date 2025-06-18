@@ -1,0 +1,4 @@
+id:  ollama:ycchen/breeze-7b-instruct-v1_0:latest
+label: "Breeze 7B Instruct"
+config:
+  debug: true  # 顯示實際發送的請求

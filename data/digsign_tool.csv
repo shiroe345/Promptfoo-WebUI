@@ -1,0 +1,28 @@
+功能,測試情境,使用者輸入,預期 LLM 回應,tool_calls
+發證,精準指令,申請發證,成功寄出/發證,create_certificate
+發證,簡短命令,幫我發證,成功寄出/發證,create_certificate
+發證,冗長命令,請問可不可以幫我寄出證書,成功寄出/發證,create_certificate
+發證,模糊口語,發一下證書,成功寄出/發證,create_certificate
+發證,錯誤拼字,發贈證書,成功寄出/發證,create_certificate
+發證,未滿足欄位＋精準指令,發證,成功寄出/發證,create_certificate
+發證,未滿足欄位＋簡短命令,幫我發證書,成功寄出/發證,create_certificate
+發證,未滿足欄位＋冗長命令,幫我發一下這份證書,成功寄出/發證,create_certificate
+發證,未滿足欄位＋錯誤拼字,發贈,成功寄出/發證,create_certificate
+發證,多筆合併指令,幫我發證書和補發證書,只能進行一種發證或分開操作,\"tool_calls\": []
+補發,精準指令,申請補發，A123456789,成功寄出/補發,reissue_certificate
+補發,簡短命令,補發王小明A123456789,成功寄出/補發,reissue_certificate
+補發,簡短命令,補發王小明A123456789,成功寄出/補發,reissue_certificate
+補發,冗長命令,A123456789王小明說他沒收到，請幫我補發他的證書,成功寄出/補發,reissue_certificate
+補發,模糊口語,A123456789的證書可以再發一次嗎？,成功寄出/補發,reissue_certificate
+補發,錯誤拼字,補髮 A123456789,成功寄出/補發,reissue_certificate
+補發,UUID精準指令,申請補發，uuid-123e4567-e89b-12d3-a456-426614174000,成功寄出/補發,reissue_certificate
+補發,UUID簡短命令,補發王小明uuid-123e4567-e89b-12d3-a456-426614174000,成功寄出/補發,reissue_certificate
+補發,UUID冗長命令,uuid-123e4567-e89b-12d3-a456-426614174000王小明說他沒收到，請幫我補發他的證書,成功寄出/補發,reissue_certificate
+補發,UUID模糊口語,uuid-123e4567-e89b-12d3-a456-426614174000的證書可以再發一次嗎？,成功寄出/補發,reissue_certificate
+補發,未滿足欄位＋精準指令,補發王小明的證書,請提供身分證號/uuid,\"tool_calls\": []
+補發,未滿足欄位＋簡短命令,補發王小明,請提供身分證號/uuid,\"tool_calls\": []
+補發,未滿足欄位＋冗長命令,王小明說他沒收到，請幫我補發他的證書,請提供身分證號/uuid,\"tool_calls\": []
+補發,未滿足欄位＋模糊口語,王小明的證書可以再發一次嗎？,請提供身分證號/uuid,\"tool_calls\": []
+補發,未滿足欄位＋錯誤拼字,補髮證書,請提供身分證號/uuid,\"tool_calls\": []
+補發,多筆合併指令,補發A123456789和補發uuid-123e4567-e89b-12d3-a456-426614174000的證書,只能進行一種補發或分開操作,\"tool_calls\": []
+補發,多筆合併指令,幫我初次發證和補發A123456789的證書,只能進行一種補發或分開操作,\"tool_calls\": []
