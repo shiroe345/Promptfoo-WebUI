@@ -62,7 +62,9 @@
    ollama pull ycchen/breeze-7b-instruct-v1_0
    ```
 
-5. **設定 OpenAI API (如使用 OpenAI 模型)**
+5. **設定 OpenAI API**
+   - 如果有使用預設的 provider (gpt-4.1)，需要設置環境變數
+
    設定環境變數
    ```bash
    # Windows
@@ -95,19 +97,19 @@ tests:
 #### 執行評估
 執行所有測試與模型的評估：
 ```bash
-promptfoo eval -c promptfooconfig.yaml
+promptfoo eval
 ```
 
 #### 保存評估結果
 將評估結果保存為 JSON 檔案：
 ```bash
-promptfoo eval -c promptfooconfig.yaml --output results.json
+promptfoo eval --output results.json
 ```
 
 #### 除錯
 顯示詳細的評估過程與錯誤訊息：
 ```bash
-promptfoo eval -c promptfooconfig.yaml --verbose
+promptfoo eval --verbose
 ```
 
 ### 視覺化與分析結果
@@ -125,33 +127,14 @@ Web 介面功能：
 
 ### 常見問題排解
 
-1. **CSV 解析錯誤**
-   修正 CSV 文件中的格式問題：
-   ```
-   pandas.errors.ParserError: Error tokenizing data. C error: Expected 4 fields in line 55, saw 5
-   ```
-   
-   檢查 CSV 文件中是否有：
-   - 欄位數不一致的行（第 55 行有 5 個欄位而其他行只有 4 個）
-   - 引號不匹配導致的欄位合併問題
-   - 欄位內容中的未轉義逗號
-
-   解決方式：
-   ```python
-   # 在 tests/generate.py 中修改讀取代碼，增加參數處理錯誤行
-   df = pd.read_csv("data/digsign_basic.csv", on_bad_lines='skip')  # 跳過錯誤行
-   # 或使用自定義分隔符
-   # df = pd.read_csv("data/digsign_basic.csv", delimiter=';')
-   ```
-
-2. **找不到模型**
+1. **找不到模型**
    -> 確認模型名稱是否正確，本地模型是否已下載
    ```bash
    # 檢查本地模型
    ollama list
    ```
 
-3. **評估過程錯誤**
+2. **評估過程錯誤**
    -> 查看 promptfoo-errors.log 檔案找出錯誤原因
    ```bash
    # Windows
@@ -161,10 +144,10 @@ Web 介面功能：
    tail -n 50 promptfoo-errors.log
    ```
 
-4. **未獲得評估結果**
+3. **未獲得評估結果**
    -> 檢查 providers 目錄中的模型配置是否正確
 
-5. **API 金鑰問題**
+4. **API 金鑰問題**
    -> 確認環境變數是否正確設定
    ```bash
    # Windows

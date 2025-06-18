@@ -88,3 +88,31 @@ Stack Trace: Error: pandas.errors.ParserError: Error tokenizing data. C error: E
     File "parsers.pyx", line 874, in pandas._libs.parsers.TextReader._tokenize_rows
     File "parsers.pyx", line 891, in pandas._libs.parsers.TextReader._check_tokenize_status
     File "parsers.pyx", line 2061, in pandas._libs.parsers.raise_parser_error
+2025-06-18T05:09:51.483Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 18, in call_method
+    spec.loader.exec_module(script_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "D:\graduate\Promptfoo-WebUI\tests\generate.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+2025-06-18T05:09:51.494Z [ERROR]: Error running Python script: ModuleNotFoundError: No module named 'pandas'
+Stack Trace: Error: ModuleNotFoundError: No module named 'pandas'
+    at PythonShell.parseError (C:\Users\USER\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:303:21)
+    at terminateIfNeeded (C:\Users\USER\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:193:32)
+    at ChildProcess.<anonymous> (C:\Users\USER\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:185:13)
+    at ChildProcess.emit (node:events:519:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "C:\Users\USER\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\USER\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 18, in call_method
+      spec.loader.exec_module(script_module)
+    File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+    File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+    File "D:\graduate\Promptfoo-WebUI\tests\generate.py", line 1, in <module>
+      import pandas as pd
